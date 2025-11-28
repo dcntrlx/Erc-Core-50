@@ -1,5 +1,5 @@
 # [ERC20](https://eips.ethereum.org/EIPS/eip-20)
-**Created:** 2015-11-19
+**Created:** 2015-11-19  
 **Description:** A standard interface created to standaritze tokens on Ethereum. It requires implementations to provide basic functionality to:
 - Transfer tokens.
 - Allow tokens to be approved so they can be spent by another on-chain third party.
@@ -25,18 +25,18 @@
     ```solidity
     function transfer(address _to, uint256 _value) public returns (bool success)
     ```
-    Transfers _value amount of tokens to address _to, and MUST fire the Transfer event.
+    Transfers _value amount of tokens to address _to, and MUST emit the Transfer event.
     - The function SHOULD throw if the message caller’s account balance does not have enough tokens to spend.
-    - Note: Transfers of 0 values MUST be treated as normal transfers and fire the Transfer event.
+    - Note: Transfers of 0 values MUST be treated as normal transfers and emit the Transfer event.
 
 4.  **`transferFrom`**
     ```solidity
     function transferFrom(address _from, address _to, uint256 _value) public returns (bool success)
     ```
-    Transfers _value amount of tokens from address _from to address _to, and MUST fire the Transfer event.
+    Transfers _value amount of tokens from address _from to address _to, and MUST emit the Transfer event.
     - Used for a withdraw workflow, allowing contracts to transfer tokens on your behalf.
     - The function SHOULD throw unless the _from account has deliberately authorized the sender of the message via some mechanism.
-    - Note: Transfers of 0 values MUST be treated as normal transfers and fire the Transfer event.
+    - Note: Transfers of 0 values MUST be treated as normal transfers and emit the Transfer event.
 
 5.  **`approve`**
     ```solidity
